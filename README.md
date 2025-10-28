@@ -17,7 +17,7 @@
 `POSTGRES_USER`, `POSTGRES_PASSWORD`는 환경에 맞게 직접 입력하세요.
 
 ```bash
-docker run -d   --name mtm-db   -e POSTGRES_USER=<사용자명>   -e POSTGRES_PASSWORD=<비밀번호>   -e TZ=Asia/Seoul   -p 5432:5432   --restart=always   postgres
+docker run -d   --name mta-db   -e POSTGRES_USER=<사용자명>   -e POSTGRES_PASSWORD=<비밀번호>   -e TZ=Asia/Seoul   -p 5432:5432   --restart=always   postgres
 ```
 
 
