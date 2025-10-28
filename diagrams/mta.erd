@@ -1,0 +1,101 @@
+<diagram version="1" name="empty" time="202510271114">
+  <entities>
+    <data-source id="postgres-jdbc-199eaf54e3f-25402a7d7e297d8b">
+      <entity id="1"  name="code" fq-name="public.code" order="0" font="Segoe UI:9:0" x="420" y="220">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="2"  name="code_type" fq-name="public.code_type" order="1" font="Segoe UI:9:0" x="700" y="220">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="3"  name="health" fq-name="public.health" order="2" font="Segoe UI:9:0" x="420" y="2160">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="4"  name="health_al" fq-name="public.health_al" order="3" font="Segoe UI:9:0" x="40" y="1140">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="5"  name="health_bc" fq-name="public.health_bc" order="4" font="Segoe UI:9:0" x="40" y="1340">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="6"  name="health_bp" fq-name="public.health_bp" order="5" font="Segoe UI:9:0" x="40" y="1840">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="7"  name="health_bs" fq-name="public.health_bs" order="6" font="Segoe UI:9:0" x="40" y="2080">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="8"  name="health_cm" fq-name="public.health_cm" order="7" font="Segoe UI:9:0" x="40" y="2400">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="9"  name="health_hrv" fq-name="public.health_hrv" order="8" font="Segoe UI:9:0" x="40" y="2580">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="10" name="health_hs" fq-name="public.health_hs" order="9" font="Segoe UI:9:0" x="40" y="3260">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="11" name="health_lu" fq-name="public.health_lu" order="10" font="Segoe UI:9:0" x="40" y="3500">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="12" name="health_users" fq-name="public.health_users" order="11" font="Segoe UI:9:0" x="200" y="980">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="13" name="users" fq-name="public.users" order="12" font="Segoe UI:9:0" x="420" y="500">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="14" name="users_accounts" fq-name="public.users_accounts" order="13" font="Segoe UI:9:0" x="40" y="260">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="15" name="users_health_data" fq-name="public.users_health_data" order="14" font="Segoe UI:9:0" x="40" y="40">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="16" name="users_log" fq-name="public.users_log" order="15" font="Segoe UI:9:0" x="60" y="440">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="17" name="users_refresh_tokens" fq-name="public.users_refresh_tokens" order="16" font="Segoe UI:9:0" x="40" y="640">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+      <entity id="18" name="users_site" fq-name="public.users_site" order="17" font="Segoe UI:9:0" x="40" y="820">
+        <path name="public"/>
+        <path name="novellink"/>
+      </entity>
+    </data-source>
+  </entities>
+
+  <relations>
+    <relation name="user_accounts_provider_fkey" fq-name="public.users_accounts.user_accounts_provider_fkey" type="fk" pk-ref="1" fk-ref="14"/>
+    <relation name="user_health_data_health_data_type_fkey" fq-name="public.users_health_data.user_health_data_health_data_type_fkey" type="fk" pk-ref="1" fk-ref="15"/>
+    <relation name="user_health_data_measurement_type_fkey" fq-name="public.users_health_data.user_health_data_measurement_type_fkey" type="fk" pk-ref="1" fk-ref="15"/>
+    <relation name="user_log_log_type_fkey" fq-name="public.users_log.user_log_log_type_fkey" type="fk" pk-ref="1" fk-ref="16"/>
+    <relation name="fk_type_id_code" fq-name="public.code.fk_type_id_code" type="fk" pk-ref="2" fk-ref="1"/>
+    <relation name="health_al_health_id_fkey" fq-name="public.health_al.health_al_health_id_fkey" type="fk" pk-ref="3" fk-ref="4"/>
+    <relation name="health_bc_health_id_fkey" fq-name="public.health_bc.health_bc_health_id_fkey" type="fk" pk-ref="3" fk-ref="5"/>
+    <relation name="health_bp_health_id_fkey" fq-name="public.health_bp.health_bp_health_id_fkey" type="fk" pk-ref="3" fk-ref="6"/>
+    <relation name="health_bs_health_id_fkey" fq-name="public.health_bs.health_bs_health_id_fkey" type="fk" pk-ref="3" fk-ref="7"/>
+    <relation name="health_cm_health_id_fkey" fq-name="public.health_cm.health_cm_health_id_fkey" type="fk" pk-ref="3" fk-ref="8"/>
+    <relation name="health_hrv_health_id_fkey" fq-name="public.health_hrv.health_hrv_health_id_fkey" type="fk" pk-ref="3" fk-ref="9"/>
+    <relation name="health_hs_health_id_fkey" fq-name="public.health_hs.health_hs_health_id_fkey" type="fk" pk-ref="3" fk-ref="10"/>
+    <relation name="health_lu_health_id_fkey" fq-name="public.health_lu.health_lu_health_id_fkey" type="fk" pk-ref="3" fk-ref="11"/>
+    <relation name="health_users_health_id_fkey" fq-name="public.health_users.health_users_health_id_fkey" type="fk" pk-ref="3" fk-ref="12"/>
+    <relation name="health_users_user_id_fkey" fq-name="public.health_users.health_users_user_id_fkey" type="fk" pk-ref="13" fk-ref="12"/>
+    <relation name="user_accounts_user_id_fkey" fq-name="public.users_accounts.user_accounts_user_id_fkey" type="fk" pk-ref="13" fk-ref="14"/>
+    <relation name="user_health_data_user_id_fkey" fq-name="public.users_health_data.user_health_data_user_id_fkey" type="fk" pk-ref="13" fk-ref="15"/>
+    <relation name="user_log_user_id_fkey" fq-name="public.users_log.user_log_user_id_fkey" type="fk" pk-ref="13" fk-ref="16"/>
+    <relation name="refesh_tokens_user_id_fkey" fq-name="public.users_refresh_tokens.refesh_tokens_user_id_fkey" type="fk" pk-ref="13" fk-ref="17"/>
+    <relation name="site_users_user_id_fkey" fq-name="public.users_site.site_users_user_id_fkey" type="fk" pk-ref="13" fk-ref="18"/>
+  </relations>
+</diagram>
