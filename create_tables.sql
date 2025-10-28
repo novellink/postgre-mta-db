@@ -25,7 +25,7 @@ DROP TABLE public.cde_type;
 
 
 CREATE TABLE public.code (
-    id smallint NOT NULL,
+    id smallint NOT NULL PRIMARY KEY,
     name character varying(200) NOT NULL,
     type_id smallint NOT NULL
 );
@@ -33,7 +33,7 @@ CREATE TABLE public.code (
 
 
 CREATE TABLE public.code_type (
-    id smallint NOT NULL,
+    id smallint NOT NULL PRIMARY KEY,
     name character varying(200) NOT NULL
 );
 
