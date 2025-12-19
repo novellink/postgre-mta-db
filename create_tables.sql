@@ -27,7 +27,7 @@ DROP TABLE public.cde_type;
 CREATE TABLE public.code (
     id smallint NOT NULL PRIMARY KEY,
     name character varying(200) NOT NULL,
-    type_id smallint NOT NULL
+    type_id smallint NOT NULL REFERENCES code_type (id) ON UPDATE CASCADE
 );
 
 
@@ -231,7 +231,7 @@ CREATE TABLE health_lu (
 
     UNIQUE (health_id, data_dt)
 );
-CREATE TABLE health_hrv (
+CREATE TABLE health_st (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
