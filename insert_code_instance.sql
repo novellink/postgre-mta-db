@@ -68,5 +68,9 @@ VALUES
 (404, '삭제', 400);
 
 
+/*
+* 크론탭에서 실행되는 refresh 삭제 SQL
+*/
 
+DELETE FROM users_refresh_tokens WHERE expired_at < NOW();
 
