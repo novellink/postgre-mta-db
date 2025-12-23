@@ -70,8 +70,9 @@ CREATE TABLE public.users_accounts(
 id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 user_id bigint NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 provider smallint NOT NULL REFERENCES code(id) ON UPDATE CASCADE ,
-provider_sub text NOT NULL UNIQUE,
+provider_sub text NOT NULL,
 email text NOT NULL,
+UNIQUE(provider,provider_sub),
 UNIQUE(user_id,provider)
 )
 
@@ -98,13 +99,13 @@ gender boolean NOT NULL DEFAULT TRUE,
 birth_dt date NOT NULL
 )
 
-CREATE TABLE health_users(
+CREATE TABLE public.health_users(
 health_id bigint NOT NULL REFERENCES health(id) ON DELETE CASCADE,
 user_id bigint NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 PRIMARY KEY(health_id,user_id)
 )
 
-CREATE TABLE health_al(
+CREATE TABLE public.health_al(
 id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 health_id bigint NOT NULL REFERENCES health(id) ON DELETE CASCADE,
 data_dt TIMESTAMPTZ NOT NULL,
@@ -113,7 +114,7 @@ alcohol_yang NUMERIC(6,2) NOT NULL,
 unique(health_id,data_dt)
 )
 
-CREATE TABLE health_bc (
+CREATE TABLE public.health_bc (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -137,7 +138,7 @@ CREATE TABLE health_bc (
     UNIQUE (health_id, data_dt)
 );
 
-CREATE TABLE health_bp (
+CREATE TABLE public.health_bp (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -151,7 +152,7 @@ CREATE TABLE health_bp (
 );
 
 
-CREATE TABLE health_bs (
+CREATE TABLE public.health_bs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -167,7 +168,7 @@ CREATE TABLE health_bs (
     UNIQUE (health_id, data_dt)
 );
 
-CREATE TABLE health_cm (
+CREATE TABLE public.health_cm (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -177,7 +178,7 @@ CREATE TABLE health_cm (
 
 
 
-CREATE TABLE health_hs (
+CREATE TABLE public.health_hs (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -191,7 +192,7 @@ CREATE TABLE health_hs (
 );
 
 
-CREATE TABLE health_lu (
+CREATE TABLE public.health_lu (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -231,7 +232,7 @@ CREATE TABLE health_lu (
 
     UNIQUE (health_id, data_dt)
 );
-CREATE TABLE health_st (
+CREATE TABLE public.health_st (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     health_id BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
     data_dt TIMESTAMPTZ NOT NULL,
@@ -266,7 +267,7 @@ CREATE TABLE health_st (
     UNIQUE (health_id, data_dt)
 );
 
-CREATE TABLE health_va (
+CREATE TABLE public.health_va (
 	id  BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	health_id  BIGINT NOT NULL REFERENCES health(id) ON DELETE CASCADE,
 	data_dt timestamptz NOT NULL,
