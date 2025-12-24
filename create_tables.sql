@@ -63,7 +63,8 @@ UNIQUE (user_id,refresh_token)
 CREATE TABLE public.users_site(
 user_id bigint NOT NULL PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
 site_token text NOT NULL UNIQUE,
-site_name varchar(100) NOT NULL 
+site_name varchar(100) NOT NULL,
+site_logo_url varchar NOT NULL,
 );
 
 CREATE TABLE public.users_accounts(
